@@ -2,6 +2,27 @@ import React, { Component } from "react";
 import Tile from "./Tile";
 
 class Board extends Component {
+
+isPointInsideArray(point) {
+const arrayOfArrays = this.props.obstacle;  
+  for (let i = 0; i < arrayOfArrays.length; i++) {
+      if (point[0] === arrayOfArrays[i][0] && point[1] === arrayOfArrays[i][1])  {
+        return true;
+      }
+    }
+    return false;
+  }   
+isPointInsideArray1(point) {
+    const arrayOfArrays = this.props.point1;  
+      for (let i = 0; i < arrayOfArrays.length; i++) {
+          if (point[0] === arrayOfArrays[i][0] && point[1] === arrayOfArrays[i][1])  {
+            return true;
+          }
+        }
+        return false;
+      }     
+
+
   renderRow(y) {
     var tiles = [];
     for (let x = 0; x < this.props.dimensions[0]; ++x) {
@@ -13,6 +34,8 @@ class Board extends Component {
           key={[x, y]}
           value={[x, y]}
           hasRover={hasRover}
+          hasObstacle={this.isPointInsideArray([x, y])}
+          hasPoint1={this.isPointInsideArray1([x, y])}
           direction={this.props.direction}
         />
       );
@@ -30,6 +53,7 @@ class Board extends Component {
       rows.push(this.renderRow(y));
     }
     return <table>{rows}</table>;
+    
   }
 }
 

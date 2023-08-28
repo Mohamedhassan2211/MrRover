@@ -10,11 +10,28 @@
   margin: 0 auto; 
   width: 800px;
   height: 800px;
+  
 }
+.board {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.board-1 {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.label {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  font-family: 'Courier New', Courier, monospace;
 
+}
 .controls {
   margin-left: 10px;
   margin-top: 10px;
+  
 }
 .header {
   text-align: center;
@@ -24,4 +41,36 @@
   color: #000;
   text-shadow: 2px 2px 2px #000;
   font-family: 'Courier New', Courier, monospace;
+}
+
+.samples {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.samples ul {
+  margin-left: 20px;
+}
+
+.samples button {
+  background: none;
+  border-bottom: 1px solid;
+  cursor: pointer;
+  font-size: .8rem;
+  padding: 2px;
+}
+
+.samples ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.samples ul li:after {
+  content: ",";
+  display: inline-block;
+}
+
+.samples ul li:last-child:after {
+  display: none;
 }

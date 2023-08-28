@@ -7,5 +7,6 @@ import registerServiceWorker from './registerServiceWorker';
 ReactDOM.render(<Rover
 	dimensions={[8, 8]}
   start={[0, 0]}
+
 />, document.getElementById('root'));
 registerServiceWorker();

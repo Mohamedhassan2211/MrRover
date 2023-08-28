@@ -22,8 +22,10 @@ class Rover extends Component {
           move: null,
           position: props.start,
           direction: 0
-        }
+        },
       ],
+      obstacle:[],
+      point1:[],
       stepNumber: 0
     };
   }
@@ -45,6 +47,23 @@ class Rover extends Component {
       clearInterval(this.state.intervalId);
     }
   }
+  point1() {
+    let input = document.getElementById("123");
+    console.log([input.value.split(" ")[0], input.value.split(" ")[1]]);
+    this.setState({
+      point1: [ ...this.state.point1, [parseInt(input.value.split(" ")[0]), parseInt(input.value.split(" ")[1])]],
+     })
+    }
+  obstacle(){
+      let input = document.getElementById("234");
+      console.log([input.value.split(" ")[0], input.value.split(" ")[1]]);
+      this.setState({
+        obstacle: [ ...this.state.obstacle, [parseInt(input.value.split(" ")[0]), parseInt(input.value.split(" ")[1])]],
+      })
+    }
+    readmessage(message){
+      return console.log(message);
+    }
 
   move(move) {
     const history = this.state.history;
@@ -52,6 +71,7 @@ class Rover extends Component {
 
     if (move === "F" || move === "B") {
       var moveDir = move === "F" ? [1, 1] : [-1, -1];
+
       var props = this.props;
 
       const pos = currentState.position.map(function(p, idx) {
@@ -60,7 +80,21 @@ class Rover extends Component {
           props.dimensions[idx]
         );
       });
-
+      if(this.state.obstacle.some((i)=>i[0]===currentState.position[0] && i[1]===currentState.position[1])){
+        return;
+      }
+      else if(this.state.obstacle.some((i)=>i[0]===pos[0] && i[1]===pos[1])){
+        this.setState({
+          history: history.concat([
+            {
+              move: move,
+              position: currentState.position,
+              direction: currentState.direction
+            }
+          ])
+        });
+      }
+    else{
       this.setState({
         history: history.concat([
           {
@@ -70,7 +104,9 @@ class Rover extends Component {
           }
         ])
       });
-    } else if (move === "L" || move === "R") {
+      }
+    }
+   else if (move === "L" || move === "R") {
       let newDirection = calculateMove(
         currentState.direction + (move === "R" ? 1 : -1),
         4
@@ -87,31 +123,58 @@ class Rover extends Component {
     }
   }
 
+
   goto(step) {
     this.setState({
       stepNumber: step
     });
   }
 
+
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
 
     return (
-     <div className="rover">
-       <div className="container">
+    <div className="rover">
+      <div className="container">
        <div className="header">
-       <h1>MrRover</h1>
+        <h1>MrRover</h1>
        </div>
-        <div className="board">
+       <div className="board">
+        
           <Board
+            obstacle={this.state.obstacle}
+            point1={this.state.point1}
             dimensions={this.props.dimensions}
             position={current.position}
             direction={current.direction}
           />
-        </div>
-        <div className="controls">
+          <div className="board-1">
+          <br></br>
+          <div>{this.readmessage}</div>
+            <label className="label">pleace enter the cordinte of obstacle(x,y)</label>
+            <br></br>
+            
+            <input type="text" id="234" />
+            <button onClick={ () => this.obstacle()}>
+              add obstacle 
+            </button>
+          </div>
+          <div className="board-1">
+          <br></br>
+            <label className="label">pleace enter the cordinte of point(x,y)</label>
+            <br></br>
+            <input type="text" id="123" />
+            <button onClick={ () => this.point1()}>
+              add point
+            </button>
+          </div>
+       </div>
+       <div className="controls">
+       <br></br>
           {<div>Commands: {this.state.inputString}</div>}
+          <br></br>
 
           <Button action="L" onClick={i => this.queueMove(i)} />
           <Button action="R" onClick={i => this.queueMove(i)} />
@@ -123,7 +186,10 @@ class Rover extends Component {
             disabled={!this.checkForMove()}
             onClick={() => this.executeNextMove()}
           />
-        </div>
+          <br></br>
+          <br></br>
+          <br></br>
+       </div>
       </div>
      </div>
     );
