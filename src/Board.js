@@ -3,6 +3,15 @@ import Tile from "./Tile";
 
 class Board extends Component {
 
+isPointInsideArray2(point) {
+    const arrayOfArrays = this.props.highlight;  
+      for (let i = 0; i < arrayOfArrays.length; i++) {
+          if (point[0] === arrayOfArrays[i][0] && point[1] === arrayOfArrays[i][1])  {
+            return true;
+          }
+        }
+        return false;
+      }   
 isPointInsideArray(point) {
 const arrayOfArrays = this.props.obstacle;  
   for (let i = 0; i < arrayOfArrays.length; i++) {
@@ -22,7 +31,6 @@ isPointInsideArray1(point) {
         return false;
       }     
 
-
   renderRow(y) {
     var tiles = [];
     for (let x = 0; x < this.props.dimensions[0]; ++x) {
@@ -36,6 +44,8 @@ isPointInsideArray1(point) {
           hasRover={hasRover}
           hasObstacle={this.isPointInsideArray([x, y])}
           hasPoint1={this.isPointInsideArray1([x, y])}
+          hasHighlight={this.isPointInsideArray2([x, y])}
+
           direction={this.props.direction}
         />
       );

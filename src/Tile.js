@@ -6,6 +6,8 @@ import roverUp from "./img/rovers/up.png";
 import roverDown from "./img/rovers/down.png";
 import obstacle from "./img/rovers/obstacle.png";
 import point1 from "./img/rovers/point1.png";
+import highlight from "./img/rovers/highlight.png";
+
 
 const tileBackgrounds = {
   rover: [
@@ -16,6 +18,7 @@ const tileBackgrounds = {
   ],
   point1: `url(${point1})`,
   obstacle: `url(${obstacle})`,
+  highlight: `url(${highlight})`,
   tile: `#fff`
 };
 
@@ -29,6 +32,10 @@ class Tile extends Component {
     else if( this.props.hasPoint1) {
       background = tileBackgrounds.point1
     }
+    else if( this.props.hasHighlight) {
+      background = tileBackgrounds.highlight
+    }
+    
     else if (this.props.hasRover) {
       background = tileBackgrounds.rover[this.props.direction];
     }

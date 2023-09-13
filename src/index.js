@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Rover from './Rover';
+import Rover from './NewRover';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<Rover

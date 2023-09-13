@@ -72,29 +72,42 @@ class Rover extends Component {
         props.dimensions[idx]
       );
     });
-let dir=(this.state.position=[0,7]);
-if(pos[0]!=dir[0] || pos[1]!= dir[1]){
-   if(this.state.point1.some((i) => i[0] === pos[0] && i[1] === pos[1])){
-    this.setState({
-      history: [{ move: "F", position: currentState.position, direction: currentState.direction }]
-    });
-  }else{
-    this.setState({
-      history: [{ move: "R", position: pos, direction: currentState.direction }]
-    });
-  }
-  }
-  else if(pos[0] === dir[0] && pos[1] === dir[1]){
-    let newDirection = calculateMove(
-      currentState.direction + (moveDir=== "R" ? -1 : 1),
-      4
-    );
-    this.setState({
-      history:[{move:"F",position: currentState.position,direction: newDirection}]
-    });
-  }
-  
-  
+    let once = true
+    let dir=(this.state.position=[0,7]);
+    if(pos[0]!=dir[0] || pos[1]!= dir[1]){
+      if(this.state.point1.some((i) => i[0] === pos[0] && i[1] === pos[1])){
+        this.setState({
+          history: [{ move: "F", position: currentState.position, direction: currentState.direction }]
+        });
+      }else{
+        this.setState({
+          history: [{ move: "R", position: pos, direction: currentState.direction }]
+        });
+      }
+      }
+      else if(dir[1] == 7 && once){
+        once = false
+        if(this.state.point1.some((i) => i[0] === pos[0] && i[1] === pos[1])){
+          this.setState({
+            history: [{ move: "F", position: currentState.position, direction: currentState.direction }]
+          });
+        }else{
+          this.setState({
+            history: [{ move: "R", position: pos, direction: currentState.direction }]
+          });
+        }
+      }
+      else if(pos[0] === dir[0] && pos[1] === dir[1]){
+        let newDirection = calculateMove(
+          currentState.direction + (moveDir=== "R" ? -1 : 1),
+          4
+        );
+        this.setState({
+          history:[{move:"F",position: currentState.position,direction: newDirection}]
+        });
+      }
+      
+      
 
 
   }
