@@ -27,7 +27,7 @@ part solution 1
 
 The Rover moves in all directions on the x and y axes, whatever movement the user wants, whether it is forward, backward, right, or left.
 
-<img src="C:\Users\Mohamed Hassan\OneDrive - Faculty of Computer and Information Sciences (Ain Shams University)\Desktop\pic\Screenshot 2023-09-17 153420.png">
+<img src="src\img\rovers\Screenshot 2023-09-17 153420.png">
 
 
 Part II
