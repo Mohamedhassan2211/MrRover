@@ -76,11 +76,18 @@ class Rover extends Component {
 
 
     while (true) {
+     
       x++
       highlight.push([x,y])
       // let counterx;
       // let countery;
       // for ()
+
+      
+      if(x-1===0&&y===0 &&this.state.obstacle.some((i) => i[0] === x && i[1] === y)&&this.state.obstacle.some((i) => i[0] === (x-1) && i[1] === (y+1))){
+        this.setState({history: [{move: "F",position: currentState.position,direction: currentState.direction}]});
+        break;
+      }
       if(this.state.obstacle.some((i) => i[0] === (x) && i[1] === y)){
         this.setState({history: [{move: "F",position: [x-1,y+1],direction: currentState.direction},],});
         highlight.push([x-1,y+1])
@@ -89,36 +96,17 @@ class Rover extends Component {
         highlight.push([x+1,y+1])
       }
       if(this.state.obstacle.some((i) => i[0] === (x-1) && i[1] === y+1)){
-        this.setState({history: [{move: "F",position: [x-1,y],direction: currentState.direction},],});}
+        this.setState({history: [{move: "F",position: [x-1,y],direction: currentState.direction},],});
+      }
       if(this.state.obstacle.some((i) => i[0] === (x+1) && i[1] === y)){
         this.setState({history: [{move: "F",position: [x-1,y+1],direction: currentState.direction}],});
-        this.setState({
-          history: [{
-            move: "F",
-            position: [x+1+1,y-1],
-            direction: currentState.direction
-          }],
-          
-        });
-
+        this.setState({history: [{move: "F",position: [x+1+1,y-1],direction: currentState.direction}], });
       }
       if(this.state.obstacle.some((i) => i[0] === (x) && i[1] === (y+1))){
-        this.setState({
-          history: [{
-            move: "F",
-            position: [x+1,y+1+1-1],
-            direction: currentState.direction
-          }],
-        });
+        this.setState({history: [{move: "F",position: [x+1,y+1+1-1],direction: currentState.direction}],});
       }
-     if(this.state.point1.some((i) => i[0] === (x) && i[1] === y) ){
-        this.setState({
-          history: [{
-            move: "F",
-            position: [x-1,y],
-            direction: currentState.direction
-          }]
-        });
+     if(this.state.point1.some((i) => i[0] === (x) && i[1] === y) )
+     {this.setState({history: [{move: "F",position: [x-1,y],direction: currentState.direction}]});
         break;
       }
       else{
