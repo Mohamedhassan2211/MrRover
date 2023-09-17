@@ -79,10 +79,7 @@ class Rover extends Component {
      
       x++
       highlight.push([x,y])
-      // let counterx;
-      // let countery;
-      // for ()
-
+  
       
       if(x-1===0&&y===0 &&this.state.obstacle.some((i) => i[0] === x && i[1] === y)&&this.state.obstacle.some((i) => i[0] === (x-1) && i[1] === (y+1))){
         this.setState({history: [{move: "F",position: currentState.position,direction: currentState.direction}]});
