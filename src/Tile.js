@@ -26,24 +26,24 @@ class Tile extends Component {
   render() {
     var classString = `tile ${this.props.hasRover ? "rover" : ""}`;
     let background = tileBackgrounds.tile;
-    if( this.props.hasObstacle) {
+    if (this.props.hasObstacle) {
       background = tileBackgrounds.obstacle
     }
-    else if( this.props.hasPoint1) {
+    else if (this.props.hasPoint1) {
       background = tileBackgrounds.point1
     }
-    else if( this.props.hasHighlight) {
+    else if (this.props.hasHighlight) {
       background = tileBackgrounds.highlight
     }
-    
+
     else if (this.props.hasRover) {
       background = tileBackgrounds.rover[this.props.direction];
     }
-    
+
 
     return (
-      <td className={classString} style={{ background: background }}>
-        {}
+      <td data-testid={this.props.id} className={classString} id={this.props.id} style={{ background: background }}>
+        { }
       </td>
     );
   }

@@ -241,8 +241,8 @@ class Rover extends Component {
               <label className="label">pleace enter the cordinte of obstacle(x,y)</label>
               <br></br>
 
-              <input type="text" id="234" />
-              <button onClick={() => this.obstacle()}>
+              <input type="text" id="234" data-testid="obstacleInput" />
+              <button onClick={() => this.obstacle()} data-testid="obstacleBtn" >
                 add obstacle
               </button>
             </div>
@@ -250,9 +250,11 @@ class Rover extends Component {
               <br></br>
               <label className="label">pleace enter the cordinte of mark(x,y)</label>
               <br></br>
-              <input type="text" id="123" />
+              <input type="text" id="123" data-testid="goalInput"  />
               <button
-                onClick={() => this.point1()}>
+                onClick={() => this.point1()}
+                data-testid="goalBtn"
+                >
                 add point
               </button>
             </div>

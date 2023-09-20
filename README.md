@@ -38,6 +38,7 @@ set of coordinates for all the known obstacles in the format:
 mien the rover would enter a coordinate '.sith an obstacle, instead stop at the coordinate
 immediately before and report position, heading and Stopped due to collision, e.g. ( 3, 4) WEST
 STOPPED
+
 ###solution: 2
 When the vehicle encounters any obstacle, it searches for any other path and cannot pass through the obstacle
 <img src="src\img\rovers\Screenshot 2023-09-17 155012.png">
@@ -48,5 +49,10 @@ string for the rover that will safely move it to a given coordinate avoiding all
 
 ###Solution: 3
 
+The desired coordinate point is reached and the path is determined
+<img src="src\img\rovers\Screenshot 2023-09-20 114943.png">
+
+the link to run project is 
+<a herf="">
 
 

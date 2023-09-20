@@ -41,12 +41,13 @@ isPointInsideArray1(point) {
         <Tile
           key={[x, y]}
           value={[x, y]}
+          id={x+y*this.props.dimensions[0]}
           hasRover={hasRover}
           hasObstacle={this.isPointInsideArray([x, y])}
           hasPoint1={this.isPointInsideArray1([x, y])}
           hasHighlight={this.isPointInsideArray2([x, y])}
-
           direction={this.props.direction}
+          
         />
       );
     }
