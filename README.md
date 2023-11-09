@@ -56,6 +56,7 @@ string for the rover that will safely move it to a given coordinate avoiding all
 ### Solution: 3
 
 The desired coordinate point is reached and the path is determined
+
 <img src="src\img\rovers\Screenshot 2023-09-20 114943.png" width=350>
 
 ## project run in 
