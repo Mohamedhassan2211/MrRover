@@ -32,7 +32,7 @@ and heading in the format (6, 4) NORTH
 
 The Rover moves in all directions on the x and y axes, whatever movement the user wants, whether it is forward, backward, right, or left.
 
-<img src="src\img\rovers\Screenshot 2023-09-17 153420.png">
+<img src="src\img\rovers\Screenshot 2023-09-17 153420.png" width=250>
 
 ### Part II
 
@@ -46,7 +46,7 @@ STOPPED
 ### solution: 2
 
 When the vehicle encounters any obstacle, it searches for any other path and cannot pass through the obstacle
-<img src="src\img\rovers\Screenshot 2023-09-17 155012.png" width=50>
+<img src="src\img\rovers\Screenshot 2023-09-17 155012.png" width=250>
 
 ### Part III
 
@@ -56,7 +56,7 @@ string for the rover that will safely move it to a given coordinate avoiding all
 ### Solution: 3
 
 The desired coordinate point is reached and the path is determined
-<img src="src\img\rovers\Screenshot 2023-09-20 114943.png">
+<img src="src\img\rovers\Screenshot 2023-09-20 114943.png" width=250>
 
 ## project run in 
 <a href="https://mr-rover-mohamedhassan2211.vercel.app/">(MarsRover)</a>
