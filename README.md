@@ -46,7 +46,7 @@ STOPPED
 ### solution: 2
 
 When the vehicle encounters any obstacle, it searches for any other path and cannot pass through the obstacle
-<img src="src\img\rovers\Screenshot 2023-09-17 155012.png">
+<img src="src\img\rovers\Screenshot 2023-09-17 155012.png" width=50>
 
 ### Part III
 
